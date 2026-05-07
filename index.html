@@ -107,6 +107,23 @@
     .theme-media:hover .theme-plus {
       transform: scale(1);
     }
+
+    #site-header nav a.nav-link-active {
+      color: #7c1212;
+    }
+
+    #site-header nav .nav-menu a.nav-link-mega-active,
+    #site-header nav .nav-submenu a.nav-link-mega-active {
+      color: #7c1212;
+      background-color: #f9fafb;
+      font-weight: 600;
+    }
+
+    #site-header nav div.lg\:hidden a.nav-mobile-active {
+      color: #7c1212;
+      font-weight: 600;
+      background-color: #f9fafb;
+    }
   </style>
 </head>
 <body class="bg-[#f1f1f1] text-gray-800 antialiased">
@@ -147,7 +164,7 @@
       <div class="mx-auto max-w-7xl px-4">
         <div id="desktop-menu-row" class="hidden items-center justify-center gap-2 lg:flex">
           <ul class="flex items-center gap-0 py-1">
-            <li><a href="./index.html" class="flex items-center gap-1 px-3 py-2 text-[15px] font-medium text-[#7c1212]">Home</a></li>
+            <li><a href="./index.html" class="flex items-center gap-1 px-3 py-2 text-[15px] font-medium text-[#4f4f4f] hover:text-[#7c1212]">Home</a></li>
 
             <li class="relative nav-item">
               <a href="./Projects/Bismuth Based Multiferroics.html" class="flex items-center gap-1 px-3 py-2 text-[15px] font-medium text-[#4f4f4f] hover:text-[#7c1212]">Projects <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
@@ -245,7 +262,7 @@
               </span>
             </summary>
             <ul class="space-y-1 border-t border-gray-200 pb-3 pt-2 text-sm">
-              <li><a href="./index.html" class="block rounded px-2 py-2 text-[#7c1212]">Home</a></li>
+              <li><a href="./index.html" class="block rounded px-2 py-2 text-gray-800 hover:bg-gray-50">Home</a></li>
               <li><a href="./Projects/Bismuth Based Multiferroics.html" class="block rounded px-2 py-2 hover:bg-gray-50">Projects</a></li>
               <li><a href="./Our team/Principal Investigator.html" class="block rounded px-2 py-2 hover:bg-gray-50">Our Team</a></li>
               <li><a href="./Publications/Peer Reviewed Journals.html" class="block rounded px-2 py-2 hover:bg-gray-50">Publications</a></li>
@@ -566,6 +583,83 @@
       renderSlide(activeIndex);
       startAutoPlay();
     }
+
+    (function highlightActiveNav() {
+      const header = document.getElementById("site-header");
+      if (!header) return;
+
+      const normPath = (url) => {
+        try {
+          const u = new URL(url, window.location.href);
+          return decodeURIComponent(u.pathname).replace(/\\/g, "/").toLowerCase();
+        } catch {
+          return "";
+        }
+      };
+
+      const currentPath = normPath(window.location.href);
+      const currentFile = currentPath.split("/").pop() || "";
+
+      const sectionFromPath = () => {
+        if (currentFile === "index.html") return "home";
+        if (currentPath.includes("/projects/")) return "projects";
+        if (currentPath.includes("/our team/")) return "team";
+        if (currentPath.includes("/publications/")) return "publications";
+        if (currentPath.includes("/funding/")) return "funding";
+        if (currentPath.includes("/equipment/")) return "equipment";
+        if (currentFile === "recent news.html") return "news";
+        if (currentFile === "awards and recognition.html") return "awards";
+        if (currentFile === "gallery.html") return "gallery";
+        return "";
+      };
+
+      const section = sectionFromPath();
+
+      const dropdownSection = (li) => {
+        const a = li.querySelector(".nav-menu > li > a[href]");
+        if (!a) return "";
+        const hp = normPath(a.href);
+        if (hp.includes("/projects/")) return "projects";
+        if (hp.includes("/our team/")) return "team";
+        if (hp.includes("/publications/")) return "publications";
+        if (hp.includes("/funding/")) return "funding";
+        if (hp.includes("/equipment/")) return "equipment";
+        return "";
+      };
+
+      header.querySelectorAll(".nav-menu a, .nav-submenu a").forEach((a) => {
+        if (!a.getAttribute("href")?.endsWith(".html")) return;
+        if (normPath(a.href) === currentPath) {
+          a.classList.add("nav-link-mega-active");
+        }
+      });
+
+      header.querySelectorAll("#desktop-menu-row > ul > li > a").forEach((a) => {
+        if (!a.getAttribute("href")?.endsWith(".html")) return;
+        if (normPath(a.href) === currentPath) {
+          a.classList.add("nav-link-active");
+        }
+      });
+
+      header.querySelectorAll("#desktop-menu-row li.nav-item").forEach((li) => {
+        if (dropdownSection(li) === section) {
+          li.querySelector(":scope > a")?.classList.add("nav-link-active");
+        }
+      });
+
+      header.querySelectorAll("div.lg\\:hidden a[href$='.html']").forEach((a) => {
+        const hp = normPath(a.href);
+        if (hp === currentPath) {
+          a.classList.add("nav-mobile-active");
+          return;
+        }
+        if (section === "projects" && hp.includes("/projects/")) a.classList.add("nav-mobile-active");
+        else if (section === "team" && hp.includes("/our team/")) a.classList.add("nav-mobile-active");
+        else if (section === "publications" && hp.includes("/publications/")) a.classList.add("nav-mobile-active");
+        else if (section === "funding" && hp.includes("/funding/")) a.classList.add("nav-mobile-active");
+        else if (section === "equipment" && hp.includes("/equipment/")) a.classList.add("nav-mobile-active");
+      });
+    })();
   </script>
 </body>
 </html>
