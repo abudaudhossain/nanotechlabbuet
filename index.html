@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nanotech Research Group</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .nav-menu,
+    .nav-submenu {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+    }
+
+    .nav-menu {
+      transform: translateY(8px);
+    }
+
+    .nav-submenu {
+      transform: translateX(8px);
+    }
+
+    .is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translate(0, 0);
+    }
+  </style>
+</head>
+<body class="bg-[#f1f1f1] text-gray-800 antialiased">
+  <header class="sticky top-0 z-50 bg-white shadow-sm">
+    <div class="mx-auto flex max-w-7xl justify-center px-4 py-2">
+      <a href="#" aria-label="Nanotech Research Group Home">
+        <img
+          src="./assests/images/logo.png"
+          alt="Nanotech Research Group"
+          class="h-12 w-auto sm:h-14"
+        />
+      </a>
+    </div>
+
+    <nav class=" bg-white">
+      <div class="mx-auto max-w-7xl px-4">
+        <div class="hidden items-center justify-center gap-2 lg:flex">
+          <ul class="flex items-center gap-0 py-1">
+            <li><a href="#" class="flex items-center gap-1 px-3 py-2 text-[15px] font-medium text-[#7c1212]">Home</a></li>
+
+            <li class="relative nav-item">
+              <a href="#" class="flex items-center gap-1 px-3 py-2 text-[15px] font-medium text-[#4f4f4f] hover:text-[#7c1212]">Projects <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
+              <ul class="nav-menu absolute left-0 top-full z-40 min-w-[320px] border border-gray-200 border-t-2 border-t-[#8f1c1c] bg-white py-1 shadow-lg">
+                <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Bismuth Based Multiferroics</a></li>
+                <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Graphene based nanocomposites</a></li>
+                <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Development of Nanoparticle Synthesis Techniques</a></li>
+                <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Solar hydrogen production</a></li>
+              </ul>
+            </li>
+
+            <li class="relative nav-item">
+              <a href="#" class="flex items-center gap-1 px-3 py-2 text-[15px] font-medium text-[#4f4f4f] hover:text-[#7c1212]">Our Team <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
+              <ul class="nav-menu absolute left-0 top-full z-40 min-w-[300px] border border-gray-200 border-t-2 border-t-[#8f1c1c] bg-white py-1 shadow-lg">
+                <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Principal Investigator</a></li>
+                <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Research associates</a></li>
+                <li class="relative nav-subitem">
+                  <a href="#" class="flex w-full items-center justify-between px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Research Students <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
+                  <ul class="nav-submenu absolute left-full top-0 z-50 ml-[1px] min-w-[220px] border border-gray-200 border-t-2 border-t-[#8f1c1c] bg-white py-1 shadow-md">
+                    <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Graduate</a></li>
+                    <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Undergraduate</a></li>
+                  </ul>
+                </li>
+                <li class="relative nav-subitem">
+                  <a href="#" class="flex w-full items-center justify-between px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Postgraduate Degree Awarded <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
+                  <ul class="nav-submenu absolute left-full top-0 z-50 ml-[1px] min-w-[200px] border border-gray-200 border-t-2 border-t-[#8f1c1c] bg-white py-1 shadow-md">
+                    <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">PhD</a></li>
+                    <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">MPhil</a></li>
+                    <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">MSc</a></li>
+                  </ul>
+                </li>
+                <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Alumni</a></li>
+                <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Collaborators</a></li>
+              </ul>
+            </li>
+
+            <li class="relative nav-item">
+              <a href="#" class="flex items-center gap-1 px-3 py-2 text-[15px] font-medium text-[#4f4f4f] hover:text-[#7c1212]">Publications <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
+              <ul class="nav-menu absolute left-0 top-full z-40 min-w-[360px] border border-gray-200 border-t-2 border-t-[#8f1c1c] bg-white py-1 shadow-lg">
+                <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Peer Reviewed Journals</a></li>
+                <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Keynote and Invited talks</a></li>
+                <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Conference Proceedings/Abstracts</a></li>
+                <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Presentation on Articulation of Research Articles</a></li>
+                <li class="relative nav-subitem">
+                  <a href="#" class="flex w-full items-center justify-between px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Sample Thesis <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
+                  <ul class="nav-submenu absolute left-full top-0 z-50 ml-[1px] min-w-[230px] border border-gray-200 border-t-2 border-t-[#8f1c1c] bg-white py-1 shadow-md">
+                    <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Sample Thesis of M.Sc.</a></li>
+                    <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Sample Thesis of PhD</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li class="relative nav-item">
+              <a href="#" class="flex items-center gap-1 px-3 py-2 text-[15px] font-medium text-[#4f4f4f] hover:text-[#7c1212]">Funding <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
+              <ul class="nav-menu absolute left-0 top-full z-40 min-w-[260px] border border-gray-200 border-t-2 border-t-[#8f1c1c] bg-white py-1 shadow-lg">
+                <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Research grants</a></li>
+                <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">NRL Hardship Fund (NHF)</a></li>
+              </ul>
+            </li>
+
+            <li class="relative nav-item">
+              <a href="#" class="flex items-center gap-1 px-3 py-2 text-[15px] font-medium text-[#4f4f4f] hover:text-[#7c1212]">Equipment <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></a>
+              <ul class="nav-menu absolute left-0 top-full z-40 min-w-[220px] border border-gray-200 border-t-2 border-t-[#8f1c1c] bg-white py-1 shadow-lg">
+                <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">List of equipment</a></li>
+                <li><a href="#" class="block px-4 py-2 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-[#7c1212]">Equipment images</a></li>
+              </ul>
+            </li>
+
+            <li><a href="#" class="flex items-center gap-1 px-3 py-2 text-[15px] font-medium text-[#4f4f4f] hover:text-[#7c1212]">Recent News</a></li>
+            <li><a href="#" class="flex items-center gap-1 px-3 py-2 text-[15px] font-medium text-[#4f4f4f] hover:text-[#7c1212]">Awards and Recognition</a></li>
+            <li><a href="#" class="flex items-center gap-1 px-3 py-2 text-[15px] font-medium text-[#4f4f4f] hover:text-[#7c1212]">Gallery</a></li>
+          </ul>
+          <button
+            type="button"
+            aria-label="Search"
+            class="ml-1 inline-flex h-7 w-7 items-center justify-center rounded-full text-gray-500 transition hover:bg-gray-100 hover:text-gray-700"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="7"></circle>
+              <line x1="16.65" y1="16.65" x2="21" y2="21"></line>
+            </svg>
+          </button>
+        </div>
+
+        <div class="lg:hidden">
+          <details class="group">
+            <summary class="flex cursor-pointer list-none items-center justify-between py-3 text-sm font-semibold text-gray-700">
+              Menu
+              <span class="text-gray-400 transition group-open:rotate-180">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+            </summary>
+            <ul class="space-y-1 border-t border-gray-200 pb-3 pt-2 text-sm">
+              <li><a href="#" class="block rounded px-2 py-2 text-[#7c1212]">Home</a></li>
+              <li><a href="#" class="block rounded px-2 py-2 hover:bg-gray-50">Projects</a></li>
+              <li><a href="#" class="block rounded px-2 py-2 hover:bg-gray-50">Our Team</a></li>
+              <li><a href="#" class="block rounded px-2 py-2 hover:bg-gray-50">Publications</a></li>
+              <li><a href="#" class="block rounded px-2 py-2 hover:bg-gray-50">Funding</a></li>
+              <li><a href="#" class="block rounded px-2 py-2 hover:bg-gray-50">Equipment</a></li>
+              <li><a href="#" class="block rounded px-2 py-2 hover:bg-gray-50">Recent News</a></li>
+              <li><a href="#" class="block rounded px-2 py-2 hover:bg-gray-50">Awards and Recognition</a></li>
+              <li><a href="#" class="block rounded px-2 py-2 hover:bg-gray-50">Gallery</a></li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="mx-auto min-h-[260px] max-w-7xl px-4 py-8">
+    <div class="rounded-lg border border-gray-200 bg-white p-6 text-sm text-gray-500">
+      Welcome to Nanotech Research Group.
+    </div>
+  </main>
+  <script>
+    const desktopNav = document.querySelector("nav .lg\\:flex");
+
+    if (desktopNav) {
+      const navItems = desktopNav.querySelectorAll(".nav-item");
+      let closeTimer = null;
+
+      const hideAll = () => {
+        desktopNav.querySelectorAll(".nav-menu, .nav-submenu").forEach((menu) => {
+          menu.classList.remove("is-open");
+        });
+      };
+
+      navItems.forEach((item) => {
+        const menu = item.querySelector(":scope > .nav-menu");
+        if (!menu) return;
+
+        item.addEventListener("mouseenter", () => {
+          clearTimeout(closeTimer);
+          hideAll();
+          menu.classList.add("is-open");
+        });
+      });
+
+      desktopNav.addEventListener("mouseleave", () => {
+        closeTimer = setTimeout(hideAll, 120);
+      });
+
+      const subItems = desktopNav.querySelectorAll(".nav-subitem");
+      subItems.forEach((subItem) => {
+        const subMenu = subItem.querySelector(":scope > .nav-submenu");
+        if (!subMenu) return;
+
+        subItem.addEventListener("mouseenter", () => {
+          const parentMenu = subItem.closest(".nav-menu");
+          if (!parentMenu) return;
+
+          parentMenu.querySelectorAll(":scope > .nav-subitem > .nav-submenu").forEach((menu) => {
+            menu.classList.remove("is-open");
+          });
+
+          subMenu.classList.add("is-open");
+        });
+      });
+    }
+  </script>
+</body>
+</html>
