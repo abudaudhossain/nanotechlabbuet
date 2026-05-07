@@ -286,7 +286,7 @@
     </div>
   </footer>
   <script>
-    const desktopNav = document.querySelector("nav .lg\:flex");
+    const desktopNav = document.querySelector("nav .lg\\:flex");
     const siteHeader = document.getElementById("site-header");
     const desktopMenuRow = document.getElementById("desktop-menu-row");
     const searchToggle = document.getElementById("search-toggle");
@@ -445,7 +445,7 @@
       const normPath = (url) => {
         try {
           const u = new URL(url, window.location.href);
-          return decodeURIComponent(u.pathname).replace(/\/g, "/").toLowerCase();
+          return decodeURIComponent(u.pathname).replace(/\\/g, "/").toLowerCase();
         } catch {
           return "";
         }
@@ -501,7 +501,7 @@
         }
       });
 
-      header.querySelectorAll("div.lg\:hidden a[href$='.html']").forEach((a) => {
+      header.querySelectorAll("div.lg\\:hidden a[href$='.html']").forEach((a) => {
         const hp = normPath(a.href);
         if (hp === currentPath) {
           a.classList.add("nav-mobile-active");
